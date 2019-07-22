@@ -173,7 +173,7 @@
       <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="7" />
     <option name="y" value="17" />
     <option name="width" value="1340" />
@@ -191,6 +191,11 @@
             <path>
               <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
               <item name="sofra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sofra" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -288,15 +293,15 @@
       <workItem from="1563610877776" duration="18990000" />
       <workItem from="1563636422537" duration="7000" />
       <workItem from="1563794342218" duration="8261000" />
-      <workItem from="1563811663663" duration="8833000" />
+      <workItem from="1563811663663" duration="9087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263127000" />
+    <option name="totallyTimeSpent" value="263381000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27051672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

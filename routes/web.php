@@ -17,15 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ],
-    function()
-    {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],
+    function() {
         Route::group(['middleware'=>['auth','auto-check-permission']],function(){
-
             Route::get('/home', 'HomeController@index')->name('home');
             Route::resource('city', 'CityController');
             Route::resource('region', 'RegionController');
