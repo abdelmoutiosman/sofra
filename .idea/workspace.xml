@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ff82365-a400-4630-9421-ad06c5a080b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +33,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../bloodbank/resources/lang/ar/pagination.php" />
-        <option value="$PROJECT_DIR$/../bloodbank/resources/lang/ar/passwords.php" />
         <option value="$PROJECT_DIR$/../bloodbank/resources/lang/ar/validation.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/home.blade.php" />
@@ -83,6 +82,8 @@
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/users/create.blade.php" />
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/users/reset-password.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/../bloodbank/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -175,7 +176,7 @@
       <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="7" />
     <option name="y" value="17" />
     <option name="width" value="1340" />
@@ -193,6 +194,10 @@
             <path>
               <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
               <item name="sofra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloodbank" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -291,12 +296,12 @@
       <workItem from="1563636422537" duration="7000" />
       <workItem from="1563794342218" duration="8261000" />
       <workItem from="1563811663663" duration="9679000" />
-      <workItem from="1563872111211" duration="477000" />
+      <workItem from="1563872111211" duration="1032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264450000" />
+    <option name="totallyTimeSpent" value="265005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
@@ -326,20 +331,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3859">
-          <caret line="227" column="59" lean-forward="true" selection-start-line="227" selection-start-column="59" selection-end-line="227" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/messages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/en/messages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -693,6 +684,20 @@
           <folding>
             <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bloodbank/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
