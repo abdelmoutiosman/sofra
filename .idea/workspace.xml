@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ff82365-a400-4630-9421-ad06c5a080b7" name="Default Changelist" comment="" />
+    <list default="true" id="9ff82365-a400-4630-9421-ad06c5a080b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,6 @@
         <option value="$PROJECT_DIR$/config/laravellocalization.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/messages.php" />
         <option value="$PROJECT_DIR$/resources/lang/ar/messages.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/resturants/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/offers/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/products/index.blade.php" />
@@ -81,6 +82,7 @@
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/users/edit.blade.php" />
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/users/create.blade.php" />
         <option value="$PROJECT_DIR$/../bloodbank/resources/views/users/reset-password.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -192,11 +194,6 @@
               <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
               <item name="sofra" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="sofra" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sofra" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -293,17 +290,18 @@
       <workItem from="1563610877776" duration="18990000" />
       <workItem from="1563636422537" duration="7000" />
       <workItem from="1563794342218" duration="8261000" />
-      <workItem from="1563811663663" duration="9087000" />
+      <workItem from="1563811663663" duration="9679000" />
+      <workItem from="1563872111211" duration="477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263381000" />
+    <option name="totallyTimeSpent" value="264450000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27051672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2743161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -328,13 +326,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="102" lean-forward="true" selection-start-line="69" selection-start-column="102" selection-end-line="69" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
@@ -688,10 +679,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../bloodbank/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+        <state relative-caret-position="297">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding>
             <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>
