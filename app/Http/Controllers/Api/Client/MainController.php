@@ -161,9 +161,7 @@ class MainController extends Controller
         //$resturant = $order->resturant;
         $notification=$resturant->notifications()->create([
             'title'      => 'تم تأكيد توصيل طلبك من العميل',
-            //'title_en'   => 'Your order is delivered to client',
             'body'    => 'تم تأكيد التوصيل للطلب رقم ' . $request->order_id . ' للعميل',
-            //'body_en' => 'Order no. ' . $request->order_id . ' is delivered to client',
             'order_id'   => $request->order_id,
         ]);
         $tokens = $resturant->tokens()->where('token', '!=', '')->pluck('token')->toArray();
@@ -207,9 +205,7 @@ class MainController extends Controller
         //$resturant = $order->resturant;
         $notification=$resturant->notifications()->create([
             'title'      => 'تم رفض توصيل طلبك من العميل',
-            //'title_en'   => 'Your order delivery is declined by client',
             'body'    => 'تم رفض التوصيل للطلب رقم ' . $request->order_id . ' للعميل',
-            //'body_en' => 'Delivery if order no. ' . $request->order_id . ' is declined by client',
             'order_id'   => $request->order_id,
         ]);
         $tokens = $resturant->tokens()->where('token', '!=', '')->pluck('token')->toArray();

@@ -195,9 +195,7 @@ class MainController extends Controller
         //$client = $order->client;
         $notification=$client->notifications()->create([
             'title' => 'تم قبول طلبك',
-            //'title_en' => 'Your order is accepted',
             'body' => 'تم قبول الطلب رقم '.$request->order_id,
-            //'body_en' => 'Order no. '.$request->order_id.' is accepted',
             'order_id' => $request->order_id,
         ]);
         $tokens = $client->tokens()->where('token','!=','')->pluck('token')->toArray();
@@ -244,9 +242,7 @@ class MainController extends Controller
         //$client = $order->client;
         $notification=$client->notifications()->create([
             'title' => 'تم رفض طلبك',
-            //'title_en' => 'Your order is rejected',
             'body' => 'تم رفض الطلب رقم '.$request->order_id,
-            //'body_en' => 'Order no. '.$request->order_id.' is rejected',
             'order_id' => $request->order_id,
         ]);
         $tokens = $client->tokens()->where('token','!=','')->pluck('token')->toArray();
@@ -295,9 +291,7 @@ class MainController extends Controller
         //$client = $order->client;
         $notification=$client->notifications()->create([
             'title' => 'تم تأكيد توصيل طلبك',
-            //'title_en' => 'Your order is delivered',
             'body' => 'تم تأكيد التوصيل للطلب رقم '.$request->order_id,
-            //'body_en' => 'Order no. '.$request->order_id.' is delivered to you',
             'order_id' => $request->order_id,
         ]);
         $tokens = $client->tokens()->where('token','!=','')->pluck('token')->toArray();

@@ -22,7 +22,7 @@ class MainController extends Controller
                 $query->where('name',$request->name);
             }
         })->paginate(10);
-        if($regions->count() < 1){
+        if(!$regions){
             return responseJson(0,'no results found');
         };
         return responseJson(1, 'success', $regions);
@@ -33,7 +33,7 @@ class MainController extends Controller
                 $query->where('name',$request->name);
             }
         })->get();
-        if($cities->count() < 1){
+        if(!$cities){
             return responseJson(0,'no results found');
         }
         return responseJson(1, 'success', $cities);
@@ -52,7 +52,7 @@ class MainController extends Controller
                 $query->where('name',$request->name);
             }
         })->paginate(10);
-        if($resturants->count() < 1){
+        if(!$resturants){
             return responseJson(0,'no results found');
         }
         return responseJson(1, 'success', $resturants);
