@@ -247,7 +247,7 @@ class MainController extends Controller
     }
     public function listOrder(Request $request){
         $order= Order::with('client','paymentmethod','resturant.classifications','products')->find($request->order_id);
-        $request->user()->notifications()->where('order_id',$order->id)->update(['is_read' => 1]);
+        $request->user()->notifications()->where('order_id',$request->order_id)->update(['is_read' => 1]);
         if(!$order){
             return responseJson(0,'no results found');
         }

@@ -45,7 +45,7 @@
                 <a href="{{url(route('city.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> New City</a>
                 @if(count($records))                 
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>

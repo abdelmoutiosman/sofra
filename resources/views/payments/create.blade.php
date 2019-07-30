@@ -35,7 +35,7 @@
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="resturant_id">Resturant_name</label>
+                        <label for="resturant_id">Resturants</label>
                         {!! Form::select('resturant_id',$resturants,[],[
                             'class'=>'form-control',
                         ]) !!}

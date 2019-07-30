@@ -2,12 +2,12 @@
 @inject('model', 'App\Models\Region')
 @section('content')
     @section('page_title')
-       Create Regions
+       Create Region
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Form TO Create Regions</h3>
+                <h3 class="box-title">Form TO Create Region</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -29,7 +29,7 @@
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="city_id">city_name</label>
+                        <label for="city_id">cities</label>
                         {!! Form::select('city_id',$cities,[],[
                             'class'=>'form-control',
                         ]) !!}

@@ -2,12 +2,12 @@
 @inject('model', 'App\Models\Classification')
 @section('content')
     @section('page_title')
-       Create Classifications
+       Create Classification
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Form TO Create Classifications</h3>
+                <h3 class="box-title">Form TO Create Classification</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">

@@ -34,7 +34,7 @@
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="resturant_id">Resturant_name</label>
+                        <label for="resturant_id">Resturant Name</label>
                         {!! Form::select('resturant_id',$resturant->pluck('name','id'),null,[
                             'class'=>'form-control',
                         ]) !!}

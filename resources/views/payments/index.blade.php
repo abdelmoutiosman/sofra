@@ -3,12 +3,12 @@
 @inject('resturant','App\Models\Resturant')
 @section('content')
     @section('page_title')
-        Resturants Payments
+        Payments
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">List Resturants Payments</h3>
+                <h3 class="box-title">List Payments</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">

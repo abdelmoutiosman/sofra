@@ -21,7 +21,7 @@
                 @include('flash::message')
                 @if(count($records))                 
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>

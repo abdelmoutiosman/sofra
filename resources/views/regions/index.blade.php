@@ -21,12 +21,12 @@
                 @include('flash::message')
                 @if(count($records))                 
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
                                     <th class="text-center">Name</th>
-                                    <th class="text-center">City Name</th>
+                                    <th class="text-center">Cities</th>
                                     <th class="text-center">Edit</th>
                                     <th class="text-center">Delete</th>
                                 </tr>
