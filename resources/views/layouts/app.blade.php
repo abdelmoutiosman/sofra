@@ -37,7 +37,7 @@
             }
         </style>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-purple sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
             <header class="main-header">
@@ -95,8 +95,8 @@
                                 <span class="label label-warning">{{$notification->count()}}</span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li class="header">You have {{$notification->count()}} notifications</li>
-                                <li>
+                                <li class="dropdown-item header">You have {{$notification->count()}} notifications</li>
+                                <li class="dropdown-item ">
                                   <!-- inner menu: contains the actual data -->
                                   <ul class="menu">
                                     <li>
@@ -106,10 +106,14 @@
                                     </li>
                                   </ul>
                                 </li>
-                                <li class="footer"><a href="#">View all</a></li>
-{{--                            @foreach($notification as $n)--}}
-{{--                                <li>{{$n->title}}</li>--}}
-{{--                            @endforeach--}}
+                                <li class="dropdown-item dropdown footer">
+                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">View all</a>
+                                    <ul class="dropdown-menu">
+{{--                                        @foreach($notification as $n)--}}
+{{--                                            <li  class="label label-success">{{$n->body}}</li>--}}
+{{--                                        @endforeach--}}
+                                    </ul>
+                                </li>
                               </ul>
                             </li>
 {{--                        <!-- Tasks: style can be found in dropdown.less -->--}}
@@ -227,12 +231,12 @@
                                 <li><a href="{{url(route('paymentmethod.index'))}}"><i class="fa fa-circle-o"></i>PaymentMethod</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone-square"></i> <span>Contacts</span></a></li>
-                        <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-gear"></i> <span>Settings</span></a></li>
+                        <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone"></i> <span>Contacts</span></a></li>
+                        <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
                         <li><a href="{{url(route('user.index'))}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
                         <li><a href="{{url(route('role.index'))}}"><i class="fa fa-list"></i> <span>Roles</span></a></li>
                         <li><a href="{{url(route('permission.index'))}}"><i class="fa fa-list"></i> <span>permissions</span></a></li>
-                        <li><a href="{{url('user/change-password')}}"><i class="fa fa-user"></i> <span>Change Password</span></a></li>
+                        <li><a href="{{url('user/change-password')}}"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->

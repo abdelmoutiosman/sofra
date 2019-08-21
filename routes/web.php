@@ -35,7 +35,6 @@ Route::group(['middleware'=>['auth','auto-check-permission']],function(){
     Route::resource('paymentmethod', 'PaymentMethodController');
     Route::resource('contact', 'ContactController');
     Route::resource('setting', 'SettingController');
-    // User reset password
     Route::get('user/change-password','UserController@changePassword');
     Route::post('user/change-password','UserController@changePasswordSave');
     Route::resource('user', 'UserController');

@@ -112,7 +112,7 @@
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-navy"><i class="fa fa-address-card"></i></span>
+            <span class="info-box-icon bg-navy"><i class="fa fa-phone"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">contacts</span>
                 <span class="info-box-number">{{$contact->count()}}</span>
@@ -130,7 +130,7 @@
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gray-light"><i class="fa fa-gears"></i></span>
+            <span class="info-box-icon bg-gray-light"><i class="fa fa-cogs"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">settings</span>
                 <span class="info-box-number">{{$setting->count()}}</span>
