@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../bloodbank/.idea/bloodbank.iml" filepath="$PROJECT_DIR$/../bloodbank/.idea/bloodbank.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sofra.iml" filepath="$PROJECT_DIR$/.idea/sofra.iml" />
     </modules>
   </component>

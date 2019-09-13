@@ -15,10 +15,10 @@
         <link rel="stylesheet" type="text/css" href="{{asset('adminlte/plugins/sweetalert/sweetalert.css')}}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{asset('adminlte/plugins/Ionicons/css/ionicons.min.css')}}">
-        <!-- datatables -->
-        <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.css')}}">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{{--        <!-- datatables -->--}}
+{{--        <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.css')}}">--}}
+{{--        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
+{{--        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>--}}
         <!-- Theme style -->
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
@@ -454,42 +454,42 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{asset('adminlte/js/demo.js')}}"></script>
         <script src="{{asset('js/confirm.js')}}"></script>
-        <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+{{--        <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>--}}
+{{--        <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>--}}
         <script>
             $(document).ready(function () {
                 $('.sidebar-menu').tree()
             })
         </script>
-        <script>
-            $(function () {
-                $("#example1").DataTable({
-                    "paging": true,
-                    "lengthChange": true,
-                    "searching": true,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    // "language": {
-                    //     "sProcessing":   "جارٍ التحميل...",
-                    //     "sLengthMenu":   "أظهر MENU مدخلات",
-                    //     "sZeroRecords":  "لم يعثر على أية سجلات",
-                    //     "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
-                    //     "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
-                    //     "sInfoFiltered": "(منتقاة من مجموع MAX مُدخل)",
-                    //     "sInfoPostFix":  "",
-                    //     "sSearch":       "ابحث:",
-                    //     "sUrl":          "",
-                    //     "oPaginate": {
-                    //         "sFirst":    "الأول",
-                    //         "sPrevious": "السابق",
-                    //         "sNext":     "التالي",
-                    //         "sLast":     "الأخير"
-                    //     }
-                    // }
-                });
-            });
-        </script>
+{{--        <script>--}}
+{{--            $(function () {--}}
+{{--                $("#example1").DataTable({--}}
+{{--                    "paging": true,--}}
+{{--                    "lengthChange": true,--}}
+{{--                    "searching": true,--}}
+{{--                    "ordering": true,--}}
+{{--                    "info": true,--}}
+{{--                    "autoWidth": false,--}}
+{{--                    // "language": {--}}
+{{--                    //     "sProcessing":   "جارٍ التحميل...",--}}
+{{--                    //     "sLengthMenu":   "أظهر MENU مدخلات",--}}
+{{--                    //     "sZeroRecords":  "لم يعثر على أية سجلات",--}}
+{{--                    //     "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",--}}
+{{--                    //     "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",--}}
+{{--                    //     "sInfoFiltered": "(منتقاة من مجموع MAX مُدخل)",--}}
+{{--                    //     "sInfoPostFix":  "",--}}
+{{--                    //     "sSearch":       "ابحث:",--}}
+{{--                    //     "sUrl":          "",--}}
+{{--                    //     "oPaginate": {--}}
+{{--                    //         "sFirst":    "الأول",--}}
+{{--                    //         "sPrevious": "السابق",--}}
+{{--                    //         "sNext":     "التالي",--}}
+{{--                    //         "sLast":     "الأخير"--}}
+{{--                    //     }--}}
+{{--                    // }--}}
+{{--                });--}}
+{{--            });--}}
+{{--        </script>--}}
     </body>
     @stack('scripts')
     @stack('print')

@@ -92,7 +92,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="bloodbank" />
-    <orderEntry type="module" module-name="bloodbank" />
   </component>
 </module>
