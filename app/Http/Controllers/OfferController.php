@@ -19,7 +19,7 @@ class OfferController extends Controller
             if ($request->has('resturant_id')){
                 $q->where('resturant_id',$request->resturant_id);
             }
-        })->get();
+        })->paginate(2);
         return view('offers.index',compact('records'));
     }
 

@@ -20,7 +20,7 @@ class ProductController extends Controller
             if ($request->has('resturant_id')){
                 $q->where('resturant_id',$request->resturant_id);
             }
-        })->get();
+        })->paginate(2);
         return view('products.index',compact('records'));
     }
 

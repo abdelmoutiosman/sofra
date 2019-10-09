@@ -14,7 +14,7 @@ class PaymentMethodController extends Controller
      */
     public function index()
     {
-        $records=PaymentMethod::all();
+        $records=PaymentMethod::paginate(2);
         return view('paymentmethods.index',compact('records'));
     }
 

@@ -1,6 +1,23 @@
 @extends('layouts.app')
 @inject('model', 'App\User')
 @section('content')
+    @push('css')
+        <style>
+            .form-group{
+                position: relative;
+            }
+            .form-group .show-pass1{
+                position: absolute;
+                right: 18px;
+                top: 35px;
+            }
+            .form-group .show-pass2{
+                position: absolute;
+                right: 18px;
+                top: 35px;
+            }
+        </style>
+    @endpush
     @section('page_title')
        Create User
     @endsection

@@ -18,7 +18,7 @@ class OrderController extends Controller
             if ($request->has('id')){
                 $q->where('id',$request->id);
             }
-        })->get();
+        })->paginate(2);
         return view('orders.index',compact('records'));
     }
 

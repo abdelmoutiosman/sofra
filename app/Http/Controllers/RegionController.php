@@ -15,7 +15,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        $records=Region::all();
+        $records=Region::paginate(2);
         return view('regions.index',compact('records'));
     }
 

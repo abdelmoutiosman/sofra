@@ -27,7 +27,7 @@
                                 'method'=>'GET',
                                 ])!!}
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     {!! Form::select('resturant_id',$resturant->pluck('name','id'),null,[
                                         'class'=>'form-control',
@@ -35,16 +35,16 @@
                                     ]) !!}
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-flat bg-navy btn-block"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="btn btn-flat bg-navy"><i class="fa fa-search"></i></button>
+                                    <a href="{{url(route('payment.create'))}}" class="btn btn-flat bg-navy"><i class="fa fa-plus"></i> New Payment</a>
                                 </div>
                             </div>
                         </div>
                     {!! Form::close() !!}
                 </div>
-                <a href="{{url(route('payment.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> New Payment</a>
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -83,6 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$records->appends(request()->query())->links()}}
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">

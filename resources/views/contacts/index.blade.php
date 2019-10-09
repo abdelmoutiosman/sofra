@@ -83,6 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$records->appends(request()->query())->links()}}
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">

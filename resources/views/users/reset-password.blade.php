@@ -3,6 +3,28 @@
     Change Password
 @endsection
 @section('content')
+    @push('css')
+        <style>
+            .form-group{
+                position: relative;
+            }
+            .form-group .show-pass1{
+                position: absolute;
+                right: 18px;
+                top: 10px;
+            }
+            .form-group .show-pass2{
+                position: absolute;
+                right: 18px;
+                top: 10px;
+            }
+            .form-group .show-pass3{
+                position: absolute;
+                right: 18px;
+                top: 10px;
+            }
+        </style>
+    @endpush
     <section class="content">
         <div class="box">
             <div class="box-header with-border">

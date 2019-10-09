@@ -14,7 +14,7 @@ class ClassificationController extends Controller
      */
     public function index()
     {
-        $records=Classification::all();
+        $records=Classification::paginate(2);
         return view('classifications.index',compact('records'));
     }
 

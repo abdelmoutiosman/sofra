@@ -36,6 +36,7 @@
                 font-size: 1.5rem !important;
             }
         </style>
+        @stack('css')
     </head>
     <body class="hold-transition skin-purple sidebar-mini">
         <!-- Site wrapper -->
@@ -260,9 +261,9 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-{{--                <div class="pull-right hidden-xs">--}}
-{{--                    <b>Version</b> 2.4.0--}}
-{{--                </div>--}}
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.4.0
+                </div>
                 <strong>Copyright &copy; 2014-2016 <a href="#">{{auth()->user()->name}}</a>.</strong> All rights reserved.
             </footer>
             <!-- Control Sidebar -->

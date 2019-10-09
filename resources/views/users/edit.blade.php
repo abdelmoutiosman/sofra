@@ -34,20 +34,6 @@
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        {!! Form::password('password',[
-                            'class'=>'password1 form-control',
-                        ]) !!}
-                        <i class="show-pass1 fa fa-eye fa-1x"></i>
-                    </div>
-                    <div class="form-group">
-                        <label for="password_confirmation">Password Confirmation</label>
-                        {!! Form::password('password_confirmation',[
-                            'class'=>'password2 form-control',
-                        ]) !!}
-                        <i class="show-pass2 fa fa-eye fa-1x"></i>
-                    </div>
-                    <div class="form-group">
                         <label for="roles_list">Roles_list</label>
                         {!! Form::select('roles_list[]',$roles,null,[
                             'class'=>'form-control',
@@ -61,21 +47,5 @@
             </div>
         </div>
     </section>
-    @push('showpassword')
-        <script>
-            $(document).ready(function(){
-                $(".show-pass1").hover(function(){
-                    $('.password1').attr('type','text');
-                },function(){
-                    $('.password1').attr('type','password');
-                });
-                $(".show-pass2").hover(function(){
-                    $('.password2').attr('type','text');
-                },function(){
-                    $('.password2').attr('type','password');
-                });
-            });
-        </script>
-    @endpush
 @endsection
 

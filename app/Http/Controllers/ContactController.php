@@ -18,7 +18,7 @@ class ContactController extends Controller
             if ($request->has('name')){
                 $q->where('name',$request->name);
             }
-        })->get();
+        })->paginate(2);
         return view('contacts.index',compact('records'));
     }
 

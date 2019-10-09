@@ -21,7 +21,7 @@ class UserController extends Controller
 //        {
 //            abort(403);//هاجي على كل فانكشن واعمل كدا
 //        }
-        $records=User::all();
+        $records=User::paginate(2);
         return view('users.index',compact('records'));
     }
 
@@ -94,12 +94,10 @@ class UserController extends Controller
         $this->validate($request,[
             'name'=>'required|unique:users,name,'.$id,
             'email'=>'required',
-            'password'=>'required|confirmed',
             'roles_list'=>'required|array'
         ]);
         $user=User::findOrFail($id);
         $user->roles()->sync($request->input('roles_list'));
-        $request->merge(['password' => bcrypt($request->password)]);
         $user->update($request->all());
         flash()->success("Edited Successfuly");
         return redirect(route('user.index'));
