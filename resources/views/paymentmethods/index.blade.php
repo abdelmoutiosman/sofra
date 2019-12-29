@@ -17,11 +17,17 @@
                 </div>
             </div>
             <div class="box-body">
-                <a href="{{url(route('paymentmethod.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> New PaymentMethod</a>
+                <div class="form-group">
+                    @if(Auth::user()->can('create paymentmethod'))
+                        <a href="{{url(route('paymentmethod.create'))}}" class="btn bg-primary"><i class="fa fa-plus"></i> New PaymentMethod</a>
+                    @else
+                        <a href="{{url(route('paymentmethod.create'))}}" class="btn bg-primary disabled"><i class="fa fa-plus"></i> New PaymentMethod</a>
+                    @endif
+                </div>
                 @include('flash::message')
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
@@ -31,24 +37,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
                                     <td class="text-center">
-                                        <a href="{{url(route('paymentmethod.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
+                                        @if(Auth::user()->can('edit paymentmethod'))
+                                            <a href="{{url(route('paymentmethod.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @else
+                                            <a href="{{url(route('paymentmethod.edit',$record->id))}}" class="btn btn-success disabled"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @endif
                                     </td>
                                     <td class="text-center">
+                                        @if(Auth::user()->can('delete paymentmethod'))
                                         {!! Form::model($model,[
                                                 'action'=>['PaymentMethodController@destroy',$record->id],
                                                 'method'=>'delete'
-                                            ]) !!}                                          
+                                            ]) !!}
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('paymentmethod.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> Delete</button>
                                         {!! Form::close() !!}
+                                        @else
+                                            <button type="button" class="destroy btn btn-danger disabled"><i class="fa fa-trash-o"></i> Delete</button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

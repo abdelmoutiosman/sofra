@@ -41,9 +41,9 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
@@ -58,7 +58,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
@@ -75,15 +75,19 @@
                                          @endif
                                     </td>
                                     <td class="text-center">
-                                        {!! Form::model($model,[
-                                                'action'=>['ClientController@destroy',$record->id],
-                                                'method'=>'delete'
-                                            ]) !!}                                          
-                                            <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
-                                                data-route="{{URL::route('client.destroy',$record->id)}}"
-                                                type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
-                                        {!! Form::close() !!}
+                                        @if(Auth::user()->can('delete client'))
+                                            {!! Form::model($model,[
+                                                    'action'=>['ClientController@destroy',$record->id],
+                                                    'method'=>'delete'
+                                                ]) !!}
+                                                <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
+                                                    data-route="{{URL::route('client.destroy',$record->id)}}"
+                                                    type="button" class="destroy btn btn-danger"><i
+                                                    class="fa fa-trash-o"></i> Delete</button>
+                                            {!! Form::close() !!}
+                                        @else
+                                            <button type="button" class="destroy btn btn-danger disabled"><i class="fa fa-trash-o"></i> Delete</button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

@@ -38,7 +38,11 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-flat bg-navy"><i class="fa fa-search"></i></button>
-                                <a href="{{url(route('product.create'))}}" class="btn btn-flat bg-navy"><i class="fa fa-plus"></i> New Product</a>
+                                @if(Auth::user()->can('create role'))
+                                <a href="{{url(route('product.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> New Product</a>
+                                @else
+                                <a href="{{url(route('product.create'))}}" class="btn btn-primary disabled"><i class="fa fa-plus"></i> New Product</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -46,7 +50,7 @@
                 </div>
                 @if(count($records))
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
@@ -62,7 +66,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
@@ -73,20 +77,27 @@
                                     <td class="text-center">{{$record->resturant->name}}</td>
                                     <td class="text-center">{{$record->disabled}}</td>
                                     <td class="text-center">
-                                        <a href="{{url(route('product.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
+                                        @if(Auth::user()->can('edit product'))
+                                        <a href="{{url(route('product.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @else
+                                            <a href="{{url(route('product.edit',$record->id))}}" class="btn btn-success disabled"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @endif
                                     </td>
                                     <td class="text-center">
+                                        @if(Auth::user()->can('delete product'))
                                         {!! Form::model($model,[
                                                 'action'=>['ProductController@destroy',$record->id],
                                                 'method'=>'delete',
                                                 'files'=>'true'
-                                            ]) !!}                                          
+                                            ]) !!}
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('product.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> Delete</button>
                                         {!! Form::close() !!}
+                                        @else
+                                            <button type="button" class="destroy btn btn-danger disabled"><i class="fa fa-trash-o"></i> Delete</button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

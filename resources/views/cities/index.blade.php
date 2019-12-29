@@ -37,13 +37,17 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-flat bg-navy"><i class="fa fa-search"></i></button>
-                                <a href="{{url(route('city.create'))}}" class="btn btn-flat bg-navy"><i class="fa fa-plus"></i> New City</a>
+                                @if(Auth::user()->can('create city'))
+                                    <a href="{{url(route('city.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> New City</a>
+                                @else
+                                    <a href="{{url(route('city.create'))}}" class="btn btn-primary disabled"><i class="fa fa-plus"></i> New City</a>
+                                @endif
                             </div>
                         </div>
                     </div>
                     {!! Form::close() !!}
                 </div>
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
                         <table class="table table-bordered" id="example1">
                             <thead>
@@ -55,25 +59,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
-                                    <td class="text-center">
-                                        <a href="{{url(route('city.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
-                                    </td>
-                                    <td class="text-center">
-                                        {!! Form::model($model,[
-                                                'action'=>['CityController@destroy',$record->id],
-                                                'method'=>'delete'
-                                            ]) !!}                                          
-                                            <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
-                                                data-route="{{URL::route('city.destroy',$record->id)}}"
-                                                type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
-                                        {!! Form::close() !!}
-                                    </td>
+
+                                     <td class="text-center">
+                                         @if(Auth::user()->can('edit city'))
+                                            <a href="{{url(route('city.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                         @else
+                                            <a href="{{url(route('city.edit',$record->id))}}" class="btn btn-success disabled"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                         @endif
+                                     </td>
+
+                                     @if(Auth::user()->can('delete city'))
+                                         <td class="text-center">
+                                            {!! Form::model($model,[
+                                                    'action'=>['CityController@destroy',$record->id],
+                                                    'method'=>'delete'
+                                                ]) !!}
+                                                <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
+                                                    data-route="{{URL::route('city.destroy',$record->id)}}"
+                                                    type="button" class="destroy btn btn-danger"><i
+                                                    class="fa fa-trash-o"></i> Delete</button>
+                                            {!! Form::close() !!}
+                                        </td>
+                                     @else
+                                         <td class="text-center">
+                                             <button type="button" class="destroy btn btn-danger disabled"><i class="fa fa-trash-o"></i> Delete</button>
+                                         </td>
+                                     @endif
                                 </tr>
                                 @endforeach
                             </tbody>

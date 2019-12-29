@@ -106,7 +106,7 @@ class CityController extends Controller
         {
             return response()->json([
                 'status' => 0,
-                'message' => 'لا يمكن الحذف, يوجد احياء مرتبطة بالمدينه',
+                'message' => 'لا يمكن الحذف يوجد احياء مرتبطة بالمدينه',
             ]);
         }
         $record->delete();

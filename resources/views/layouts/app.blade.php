@@ -15,10 +15,10 @@
         <link rel="stylesheet" type="text/css" href="{{asset('adminlte/plugins/sweetalert/sweetalert.css')}}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{asset('adminlte/plugins/Ionicons/css/ionicons.min.css')}}">
-{{--        <!-- datatables -->--}}
-{{--        <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.css')}}">--}}
-{{--        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
-{{--        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>--}}
+        <!-- datatables -->
+        <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.css')}}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <!-- Theme style -->
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
@@ -38,7 +38,7 @@
         </style>
         @stack('css')
     </head>
-    <body class="hold-transition skin-purple sidebar-mini">
+    <body class="hold-transition skin-yellow sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
             <header class="main-header">
@@ -93,7 +93,7 @@
                             <li class="dropdown notifications-menu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">{{$notification->count()}}</span>
+                                <span class="label label-default">{{$notification->count()}}</span>
                               </a>
                               <ul class="dropdown-menu">
                                 <li class="dropdown-item header">You have {{$notification->count()}} notifications</li>
@@ -144,13 +144,13 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
-                                    <li class="user-header">
-                                        <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
-                                        <p>
-                                            @if(Auth::check())  {{auth()->user()->name}}  @endif
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">--}}
+{{--                                        <p>--}}
+{{--                                            @if(Auth::check())  {{auth()->user()->name}}  @endif--}}
 {{--                                            <small>Member since Nov. 2012</small>--}}
-                                        </p>
-                                    </li>
+{{--                                        </p>--}}
+{{--                                    </li>--}}
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="text-center">
@@ -164,9 +164,12 @@
                                                 {!! Form::open(['method' => 'post', 'url' => url('logout'),'id'=>'signoutForm']) !!}
                                                 {!! Form::close() !!}
                                             </form>
-                                            <a href="#" onclick="submitSignout()">
-                                                <i class="fa fa-sign-out"></i>  Sign Out
-                                            </a>
+                                            <div class="form-group">
+                                                <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-user"></i> Profile</a>
+                                            </div>
+                                            <div class="form-group">
+                                                <a href="#" onclick="submitSignout()"><i class="fa fa-sign-out"></i> Sign Out</a>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -186,12 +189,27 @@
                             <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            @if(Auth::check())  {{auth()->user()->name}}  @endif
+                           <p>@if(Auth::check())  {{auth()->user()->name}}  @endif</p>
+                            <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
-                        <li><a href="{{url('/home')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+{{--                        @if(Auth::user()->hasRole('user'))--}}
+{{--                        @endif--}}
+
+                    @if(Auth::user()->can('list dashboard'))
+                             <li><a href="{{url('/home')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        @endif
+                        @if(Auth::user()->can('list user'))
+                            <li><a href="{{url(route('user.index'))}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                        @endif
+                        @if(Auth::user()->can('list role'))
+                            <li><a href="{{url(route('role.index'))}}"><i class="fa fa-list"></i> <span>Roles</span></a></li>
+                        @endif
+                        @if(Auth::user()->can('list permission'))
+                            <li><a href="{{url(route('permission.index'))}}"><i class="fa fa-list"></i> <span>permissions</span></a></li>
+                        @endif
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-list"></i> <span>Cities</span>
@@ -200,8 +218,12 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url(route('city.index'))}}"><i class="fa fa-circle-o"></i> Cities</a></li>
-                                <li><a href="{{url(route('region.index'))}}"><i class="fa fa-circle-o"></i> Regions</a></li>
+                                @if(Auth::user()->can('list city'))
+                                    <li><a href="{{url(route('city.index'))}}"><i class="fa fa-circle-o"></i> Cities</a></li>
+                                @endif
+                                @if(Auth::user()->can('list region'))
+                                    <li><a href="{{url(route('region.index'))}}"><i class="fa fa-circle-o"></i> Regions</a></li>
+                                @endif
                             </ul>
                         </li>
                         <li class="treeview">
@@ -212,11 +234,21 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url(route('resturant.index'))}}"><i class="fa fa-circle-o"></i>Resturants</a></li>
-                                <li><a href="{{url(route('classification.index'))}}"><i class="fa fa-circle-o"></i>Classifications</a></li>
-                                <li><a href="{{url(route('offer.index'))}}"><i class="fa fa-circle-o"></i>Offers</a></li>
-                                <li><a href="{{url(route('product.index'))}}"><i class="fa fa-circle-o"></i>Products</a></li>
-                                <li><a href="{{url(route('payment.index'))}}"><i class="fa fa-circle-o"></i>Payments</a></li>
+                                @if(Auth::user()->can('list resturant'))
+                                    <li><a href="{{url(route('resturant.index'))}}"><i class="fa fa-circle-o"></i>Resturants</a></li>
+                                @endif
+                                @if(Auth::user()->can('list classification'))
+                                    <li><a href="{{url(route('classification.index'))}}"><i class="fa fa-circle-o"></i>Classifications</a></li>
+                                @endif
+                                @if(Auth::user()->can('list offer'))
+                                    <li><a href="{{url(route('offer.index'))}}"><i class="fa fa-circle-o"></i>Offers</a></li>
+                                @endif
+                                @if(Auth::user()->can('list product'))
+                                    <li><a href="{{url(route('product.index'))}}"><i class="fa fa-circle-o"></i>Products</a></li>
+                                @endif
+                                @if(Auth::user()->can('list payment'))
+                                    <li><a href="{{url(route('payment.index'))}}"><i class="fa fa-circle-o"></i>Payments</a></li>
+                                @endif
                             </ul>
                         </li>
                         <li class="treeview">
@@ -227,16 +259,23 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url(route('client.index'))}}"><i class="fa fa-circle-o"></i>Clients</a></li>
-                                <li><a href="{{url(route('order.index'))}}"><i class="fa fa-circle-o"></i>Orders</a></li>
-                                <li><a href="{{url(route('paymentmethod.index'))}}"><i class="fa fa-circle-o"></i>PaymentMethod</a></li>
+                                @if(Auth::user()->can('list client'))
+                                    <li><a href="{{url(route('client.index'))}}"><i class="fa fa-circle-o"></i>Clients</a></li>
+                                @endif
+                                @if(Auth::user()->can('list order'))
+                                    <li><a href="{{url(route('order.index'))}}"><i class="fa fa-circle-o"></i>Orders</a></li>
+                                @endif
+                                @if(Auth::user()->can('list paymentmethod'))
+                                    <li><a href="{{url(route('paymentmethod.index'))}}"><i class="fa fa-circle-o"></i>PaymentMethod</a></li>
+                                @endif
                             </ul>
                         </li>
-                        <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone"></i> <span>Contacts</span></a></li>
-                        <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
-                        <li><a href="{{url(route('user.index'))}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
-                        <li><a href="{{url(route('role.index'))}}"><i class="fa fa-list"></i> <span>Roles</span></a></li>
-                        <li><a href="{{url(route('permission.index'))}}"><i class="fa fa-list"></i> <span>permissions</span></a></li>
+                        @if(Auth::user()->can('list contact'))
+                            <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone"></i> <span>Contacts</span></a></li>
+                        @endif
+                        @if(Auth::user()->can('update setting'))
+                            <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
+                        @endif
                         <li><a href="{{url('user/change-password')}}"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
                     </ul>
                 </section>
@@ -455,44 +494,45 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{asset('adminlte/js/demo.js')}}"></script>
         <script src="{{asset('js/confirm.js')}}"></script>
-{{--        <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>--}}
-{{--        <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>--}}
+        <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+        <script src="{{asset('adminlte/plugins/jquery-print-this/printThis.js')}}"></script>
         <script>
             $(document).ready(function () {
                 $('.sidebar-menu').tree()
             })
         </script>
-{{--        <script>--}}
-{{--            $(function () {--}}
-{{--                $("#example1").DataTable({--}}
-{{--                    "paging": true,--}}
-{{--                    "lengthChange": true,--}}
-{{--                    "searching": true,--}}
-{{--                    "ordering": true,--}}
-{{--                    "info": true,--}}
-{{--                    "autoWidth": false,--}}
-{{--                    // "language": {--}}
-{{--                    //     "sProcessing":   "جارٍ التحميل...",--}}
-{{--                    //     "sLengthMenu":   "أظهر MENU مدخلات",--}}
-{{--                    //     "sZeroRecords":  "لم يعثر على أية سجلات",--}}
-{{--                    //     "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",--}}
-{{--                    //     "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",--}}
-{{--                    //     "sInfoFiltered": "(منتقاة من مجموع MAX مُدخل)",--}}
-{{--                    //     "sInfoPostFix":  "",--}}
-{{--                    //     "sSearch":       "ابحث:",--}}
-{{--                    //     "sUrl":          "",--}}
-{{--                    //     "oPaginate": {--}}
-{{--                    //         "sFirst":    "الأول",--}}
-{{--                    //         "sPrevious": "السابق",--}}
-{{--                    //         "sNext":     "التالي",--}}
-{{--                    //         "sLast":     "الأخير"--}}
-{{--                    //     }--}}
-{{--                    // }--}}
-{{--                });--}}
-{{--            });--}}
-{{--        </script>--}}
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "paging": false,
+                    "lengthChange": true,
+                    "searching": false,
+                    "ordering": true,
+                    "info": false,
+                    "autoWidth": false,
+                    // "language": {
+                    //     "sProcessing":   "جارٍ التحميل...",
+                    //     "sLengthMenu":   "أظهر MENU مدخلات",
+                    //     "sZeroRecords":  "لم يعثر على أية سجلات",
+                    //     "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
+                    //     "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
+                    //     "sInfoFiltered": "(منتقاة من مجموع MAX مُدخل)",
+                    //     "sInfoPostFix":  "",
+                    //     "sSearch":       "ابحث:",
+                    //     "sUrl":          "",
+                    //     "oPaginate": {
+                    //         "sFirst":    "الأول",
+                    //         "sPrevious": "السابق",
+                    //         "sNext":     "التالي",
+                    //         "sLast":     "الأخير"
+                    //     }
+                    // }
+                });
+            });
+        </script>
     </body>
     @stack('scripts')
-    @stack('print')
+    @stack('print-order')
     @stack('showpassword')
 </html>

@@ -57,7 +57,11 @@
                     ]) !!}
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> Edit Settings</button>
+                    @if(Auth::user()->can('update setting'))
+                        <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> Edit Settings</button>
+                    @else
+                        <button class="btn btn-success disabled" type="submit"><i class="fa fa-edit btn-xs"></i> Edit Settings</button>
+                    @endif
                 </div>
             {!! Form::close() !!}
             </div>

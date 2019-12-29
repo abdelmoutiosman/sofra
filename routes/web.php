@@ -35,8 +35,12 @@ Route::group(['middleware'=>['auth','auto-check-permission']],function(){
     Route::resource('paymentmethod', 'PaymentMethodController');
     Route::resource('contact', 'ContactController');
     Route::resource('setting', 'SettingController');
+    //change-password
     Route::get('user/change-password','UserController@changePassword');
     Route::post('user/change-password','UserController@changePasswordSave');
+    //edit-profile
+    Route::get('user/edit-profile/{id}','UserController@edit_profile');
+    Route::post('user/update-profile/{id}','UserController@update_profile');
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');

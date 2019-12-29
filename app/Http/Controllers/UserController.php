@@ -125,7 +125,22 @@ class UserController extends Controller
             'id'      => $id
         ]);
     }
-    
+    public function edit_profile($id)
+    {
+        $model= User::findOrFail($id);
+        return view('users.profile',compact('model'));
+    }
+    public function update_profile(Request $request,$id)
+    {
+        $this->validate($request,[
+            'name'=>'required|unique:users,name,'.$id,
+            'email'=>'required',
+        ]);
+        $user=User::findOrFail($id);
+        $user->update($request->all());
+        flash()->success("Edited Successfuly");
+        return redirect(route('user.index'));
+    }
     public function changePassword()
     {
         return view('users.reset-password');
@@ -173,6 +188,9 @@ class UserController extends Controller
             flash()->success("Password reset successfully you can login now");
             //return redirect('login');
             return redirect('forgetpassword');
+        }
+        else{
+            return redirect()->back();
         }
     }
 }

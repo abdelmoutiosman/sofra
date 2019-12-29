@@ -26,10 +26,10 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url({{asset('adminlte/img/dash.jpg')}})">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/') }}"><b>S</b>ofra</a>
+        <a href="{{ url('/') }}" style="color: white"><b>S</b>ofra</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -73,13 +73,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
 <script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
-    });
+    // $(function () {
+    //     $('input').iCheck({
+    //         checkboxClass: 'icheckbox_square-blue',
+    //         radioClass: 'iradio_square-blue',
+    //         increaseArea: '20%' /* optional */
+    //     });
+    // });
 </script>
 </body>
 </html>

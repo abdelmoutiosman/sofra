@@ -17,9 +17,15 @@
                 </div>
             </div>
             <div class="box-body">
-                <a href="{{url(route('region.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> New Region</a>
+                <div class="form-group">
+                    @if(Auth::user()->can('create region'))
+                        <a href="{{url(route('region.create'))}}" class="btn bg-primary"><i class="fa fa-plus"></i> New Region</a>
+                    @else
+                        <a href="{{url(route('region.create'))}}" class="btn bg-primary disabled"><i class="fa fa-plus"></i> New Region</a>
+                    @endif
+                </div>
                 @include('flash::message')
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
                         <table class="table table-bordered" id="example1">
                             <thead>
@@ -32,25 +38,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
                                     <td class="text-center">{{$record->city->name}}</td>
                                     <td class="text-center">
-                                        <a href="{{url(route('region.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
+                                        @if(Auth::user()->can('edit region'))
+                                            <a href="{{url(route('region.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @else
+                                            <a href="{{url(route('region.edit',$record->id))}}" class="btn btn-success disabled"><i class="fa fa-edit btn-xs"></i> Edit</a>
+                                        @endif
                                     </td>
                                     <td class="text-center">
+                                        @if(Auth::user()->can('delete region'))
                                         {!! Form::model($model,[
                                                 'action'=>['RegionController@destroy',$record->id],
                                                 'method'=>'delete'
-                                            ]) !!}                                          
+                                            ]) !!}
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('region.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> Delete</button>
                                         {!! Form::close() !!}
+                                        @else
+                                            <button type="button" class="destroy btn btn-danger disabled"><i class="fa fa-trash-o"></i> Delete</button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
